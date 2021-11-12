@@ -1,0 +1,87 @@
+<div class="container">    
+    <div style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">                    
+        <div class="panel panel-info" >
+                <div class="panel-heading">
+                    <div class="panel-title">Add user</div>
+                </div>     
+                <div style="padding-top:30px" class="panel-body" >
+                    <p>
+                   {{msg}}
+                    </p>
+                        
+                    <form (submit)="addUsers(f)" #f="ngForm">                                
+                        <div style="margin-bottom: 25px" class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+        <input type="text" class="form-control"  name="uname" ngModel #username="ngModel" (blur)="usernameCheck(username.value)" placeholder="Username" required minlength="6">                                        
+                                </div>
+                                {{username.errors | json}}
+                                <p class="alert alert-danger"
+                                *ngIf="username.errors?.required && username.touched">
+                                    Please Enter Username
+                                </p>
+                                <p class="alert alert-danger"
+                                *ngIf="username.errors?.minlength && username.touched">
+                                    Please Enter Minimum 6 Characters
+                                </p>
+                        <div style="margin-bottom: 25px" class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+            <input type="text" class="form-control"  name="uemail" ngModel #useremail="ngModel" placeholder="Email" required email>                                        
+                                </div>
+                            {{useremail.errors | json}}
+                            <p class="alert alert-danger"
+                            *ngIf="useremail.errors?.required && useremail.touched">
+                                Please Enter Your Email
+                            </p>
+                            <p class="alert alert-danger"
+                            *ngIf="useremail.errors?.email && useremail.touched">
+                                Please Enter Valid Email
+                            </p>
+                        <div style="margin-bottom: 25px" class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+
+
+         <input type="text" class="form-control"  name="ucode" ngModel #usercode="ngModel" placeholder="CourierCode" required >                                        
+                                </div>
+            
+                                {{usercode.errors | json}}
+                            <p class="alert alert-danger"
+                            *ngIf="usercode.errors?.required && usercode.touched">
+                                Please Enter Your code
+                            </p>
+                
+                        <div style="margin-bottom: 25px" class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+
+
+
+
+        <input type="password" class="form-control"  name="upassword" ngModel #userpassword="ngModel"  placeholder="Password" required>
+                                </div>
+                        
+                        <div style="margin-bottom: 25px" class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
+            <input type="text" class="form-control"  name="uphone" ngModel  placeholder="Phone Number" #userphone="ngModel" pattern="^(0|[1-9][0-9]*)$">                                        
+                                </div>
+                                {{userphone.errors | json}}
+                                <p class="alert alert-danger"
+                                *ngIf="userphone.errors?.pattern">
+                                    Please Enter Nos Only
+                                </p>
+                            <div style="margin-top:10px" class="form-group">
+                                <!-- Button -->
+                                <div class="col-sm-12">
+                <input type="submit" class="btn btn-success" value="Add User" [disabled]="f.invalid|| !usernameAvail" /> &nbsp;
+                                </div>
+                            </div>
+                        </form>
+                        <br>  <br><br>
+                        
+                    </div>                     
+                </div>  
+    </div>
+
+   
+</div>
+  
+
+  

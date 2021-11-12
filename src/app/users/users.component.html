@@ -1,0 +1,52 @@
+<div class="container">
+    <div class="row" style="padding-top: 30px;">
+        <div class="col-sm-4"></div>
+        
+        <div class="col-sm-4"></div>
+
+        <div class="col-sm-4"> 
+            Search: <input type="text" type="text" #search (keyup)="doSearch(search.value)"> &nbsp;
+            <a routerLink="/adduser">
+            <button class="btn btn-success">Add User</button> </a>
+        </div>
+        </div>
+
+    <div class="row">
+<div class="col"></div>
+
+<div class="col">
+  {{msg}}
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Status</th>
+            <th scope="col">Courier Code</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Operations</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users; index as i;">  <!--for ngFor it should be JS array as a input i.e. users[]-->
+            <th scope="row">{{i+1}}</th>
+            <td>{{user.uname}}</td>
+            <td>{{user.uemail}}</td>
+            <td>{{user.ustatus}}</td>
+            <td>{{user.ucode}}</td>
+            <td>{{user.uphone}}</td>
+            <td>
+               <a routerLink="/edituser/{{user._id}}"> <button class="btn btn-primary">Edit</button></a> &nbsp;
+                <button class="btn btn-danger" (click)="deleteUser(user._id)">Delete</button>
+            </td>
+          </tr>
+
+
+        </tbody>
+      </table>
+</div>
+
+<div class="col"></div>
+</div>
+</div>

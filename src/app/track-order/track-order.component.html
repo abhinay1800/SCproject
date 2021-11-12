@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="row" style="padding-top: 30px;">
+        <div class="col-sm-4"></div>
+        
+        <div class="col-sm-4"></div>
+
+        <div class="col-sm-4"> 
+            Courier Code: <input type="text" type="text" #search (keyup)="doSearch(search.value)"> &nbsp;
+        </div>
+        </div>
+
+    <div class="row">
+<div class="col"></div>
+
+<div class="col">
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Status</th>
+            <th scope="col">Phone</th>
+            <th scope="col">CourierCode</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users; index as i;">  <!--for ngFor it should be JS array as a input i.e. users[]-->
+            <th scope="row">{{i+1}}</th>
+            <td>{{user.uname}}</td>
+            <td>{{user.uemail}}</td>
+            <td style="color: green;">{{user.ustatus}}</td>
+            <td>{{user.uphone}}</td>
+            <td>{{user.ucode}}</td>
+          </tr>
+
+
+        </tbody>
+      </table>
+</div>
+
+<div class="col"></div>
+</div>
+</div>
+
